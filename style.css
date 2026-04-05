@@ -1,0 +1,402 @@
+/* =====================
+   FONTS
+   ===================== */
+@font-face {
+  font-family: 'Pressura';
+  src: url('./font/GT-Pressura-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Didot-bold';
+  src: url('./font/DidotLTStd-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Didot-reg';
+  src: url('./font/DidotLTStd-Roman.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* =====================
+   CSS VARIABLES
+   ===================== */
+:root {
+  --text-body:  clamp(1.25rem, 4vw, 1.5rem);
+  --text-small: clamp(0.875rem, calc(0.875rem + 0.2vw), 1rem);
+  --btn-width:  clamp(198px, 55vw, 275px);
+  --btn-height: clamp(62px, 11vw, 88px);
+  --btn-font:   clamp(1.8rem, 5vw, 2.8125rem);
+  --color-fucsia: #e81f71;
+  --color-fucsia-dark: #D60963;
+  --color-bg-btn: #D9D9D9;
+  --color-bg-giallo: #D5CDBF;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* =====================
+   BASE ELEMENTS
+   ===================== */
+p {
+  margin: 0;
+  font-size: var(--text-body);
+}
+
+h2 {
+  font-family: 'Didot-bold';
+  font-size: var(--text-body);
+}
+
+h3 {
+  font-family: 'Didot-reg';
+}
+
+/* =====================
+   TYPOGRAPHY HELPERS
+   ===================== */
+.didot-reg  { font-family: 'Didot-reg'; }
+.didot-bold { font-family: 'Didot-bold'; }
+.pressura   { font-family: 'Didot-bold'; } /* alias mantenuto */
+
+.dx {
+  text-align: end;
+  font-family: 'Didot-reg';
+  font-size: var(--text-small);
+}
+
+.piccolo {
+  font-size: var(--text-small) !important;
+  width: 70%;
+}
+
+.text-fucsia { color: var(--color-fucsia-dark); }
+
+/* =====================
+   LAYOUT / COLORS
+   ===================== */
+.fucsia {
+  background-color: var(--color-fucsia);
+  color: white;
+  text-align: left !important;
+}
+
+.giallo { background-color: var(--color-bg-giallo); }
+
+.overflow { overflow: hidden; }
+
+.contenitore-immagine { position: relative; }
+
+/* =====================
+   HERO
+   ===================== */
+.hero {
+  background-color: var(--color-fucsia);
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+/* MOBILE: GIF a tutto schermo */
+@media (max-width: 767px) {
+  .hero {
+    height: 100dvh;
+  }
+
+  .hero-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-overlay {
+    display: none;
+  }
+}
+
+/* DESKTOP: 100vh con scritta centrale */
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-gif {
+    display: none;
+  }
+
+  .hero-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .hero-overlay h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-overlay p {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    opacity: 0.8;
+  }
+}
+/* =====================
+   SEZIONE DATA — fiori decorativi
+   ===================== */
+.section-data {
+  position: relative;
+  overflow: visible;
+}
+
+.fiore-data {
+  position: absolute;
+  z-index: 10;
+}
+
+.fiore-data--tl { top: 0;   left: 0;  width: 90px; }
+.fiore-data--br { bottom: 0; right: 5px; width: 100px; }
+
+/* =====================
+   IMMAGINI CERIMONIA / RICEVIMENTO
+   ===================== */
+.cerimonia-img {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.ric-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+  transform: scale(0.7);
+}
+
+@media (min-width: 768px) {
+  .cerimonia-img,
+  .ric-img { display: none; }
+
+  .immagine-fiore-aldo {
+    display: none;
+}
+
+  .cerimonia-img {
+    display: none;
+  }
+  
+}
+
+.data-desk {
+
+  padding: 40px 80px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  font-family: 'Didot-BOLD';
+  color: var(--color-fucsia);
+  font-size: 5vh;
+}
+
+/* =====================
+   FIORI DECORATIVI — posizioni assolute
+   ===================== */
+.immagine-fiore-aldo {
+  position: absolute;
+  top: -25px; right: -25px;
+  width: 90px;
+  z-index: 1;
+}
+
+.immagine-fiore-cerimonia {
+  position: absolute;
+  top: -25px; right: -35px;
+  width: 130px;
+  z-index: 1;
+}
+
+.immagine-fiore-ricevimento {
+  position: absolute;
+  top: 555px; right: -35px;
+  width: 130px;
+  z-index: 1;
+}
+
+.immagine-fiore-lista {
+  position: absolute;
+  top: 300px; right: 300px;
+  width: 130px;
+  z-index: 1;
+}
+
+/* =====================
+   SEZIONE RSVP — fiori decorativi
+   ===================== */
+.section-rsvp {
+  position: relative;
+  overflow: visible;
+}
+
+.fiore-rsvp {
+  position: absolute;
+  z-index: 10;
+}
+
+.fiore-rsvp--tl { top: -50px;  left: -15px;  width: 110px; }
+.fiore-rsvp--br { bottom: -20px; right: -25px; width: 140px; }
+
+/* =====================
+   BUTTON RSVP
+   ===================== */
+#rsvp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+}
+
+.btn-rsvp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-width);
+  height: var(--btn-height);
+  font-family: 'Didot-reg';
+  font-size: var(--btn-font);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-fucsia-dark);
+  background: var(--color-bg-btn);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.btn-rsvp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0e0d0b;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-rsvp:hover::before { transform: translateY(0); }
+.btn-rsvp:hover         { color: #e8d9b5; }
+
+.btn-rsvp span {
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================
+   LISTA NOZZE
+   ===================== */
+.lista-nozze {
+  font-family: 'Didot-reg';
+  font-size: var(--text-small) !important;
+}
+
+.lista-nozze p {
+  display: flex;
+  align-items: center;
+}
+
+/* =====================
+   COPY IBAN
+   ===================== */
+.copy-icon {
+  cursor: pointer;
+  margin-left: 14px;
+  font-size: 14px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+
+.copy-icon:hover { opacity: 0.7; }
+
+.copy-message {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* =====================
+   GALLERY (commentata — pronta all'uso)
+   ===================== */
+/*
+.gallery {
+  background-color: #f8f8f8;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 1rem;
+  animation: scrollGallery 20s linear infinite;
+}
+
+.gallery-container:hover { animation-play-state: paused; }
+
+.gallery-item {
+  flex: 0 0 250px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scrollGallery {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 576px) {
+  .gallery-item { flex: 0 0 150px; height: 250px; }
+}
+*/
+
+/* =====================
+   RESPONSIVE — margini mobili
+   ===================== */
+@media (max-width: 768px) {
+  body p,
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  body a,
+  body span:not(#iban),
+  body li {
+    margin-left: 44px;
+    margin-right: 44px;
+  }
+}
